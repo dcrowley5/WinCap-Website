@@ -20,16 +20,16 @@
 
   // Biographies are reproduced from the advisor profiles on wincapfinancial.com.
   const team = [
-    {name:'Michael Collins', role:'Founder &amp; CEO', slug:'michael-collins', bio:[
+    {name:'Michael Collins', creds:'CFA', role:'Founder &amp; CEO', slug:'michael-collins', bio:[
       "Michael Collins, CFA has worked in Wealth Management since 2012 with roles at Northern Trust and CAPTRUST. Prior to that Michael worked in various roles in Institutional Investment Management since starting his career at State Street in 2005. He has a depth of expertise in financial planning and investment management which he leverages to enhance client outcomes.",
       "Michael is a Chartered Financial Analyst (CFA) and a Fiduciary, which requires him to always act in the best interest of his clients. Michael also has his Masters Degree in Finance from Suffolk University",
       "Michael currently teaches at Endicott College and Bunker Hill Community College where he educates students about the intricacies of the market and the basic fundamentals used by professionals to evaluate the economy. Additionally, Michael has joined the CFA Board's Program Education &amp; Advisory Council as of 2025. Here, Michael looks to give back to the organization that has helped shape his professional career."
     ]},
-    {name:'Zach Ciampa', role:'Head of Financial Planning', slug:'zach-ciampa', bio:[
+    {name:'Zach Ciampa', creds:'CFP&reg;, RICP&reg;, ChFC&reg;, BFA&trade;', role:'Head of Financial Planning', slug:'zach-ciampa', bio:[
       "Zach Ciampa brings 10 years of comprehensive experience in the financial services industry. His journey started at Fidelity Investments, where his focus was on investment planning. Subsequently, he enriched his skills during his time at Charles Schwab before contributing his insights as a financial planner at John Hancock. Through these experiences, Zach has honed his expertise to guide clients toward their financial goals.",
       "Zach is a CERTIFIED FINANCIAL PLANNER&trade; professional, Retirement Income Certified Professional&reg;, Chartered Financial Consultant&reg;, and Behavioral Finance Advisor&trade;. These certifications underscore his commitment to upholding the highest standards of professionalism and ethics. As a fiduciary, he ensures that clients receive advice which aligns with their best interests. Zach also earned his Bachelor's degree in Communications, with a minor in business, from Arizona State University."
     ]},
-    {name:'Luke Pavlatos', role:'Senior Wealth Manager', slug:'luke-pavlatos', bio:[
+    {name:'Luke Pavlatos', creds:'CFP&reg;', role:'Senior Wealth Manager', slug:'luke-pavlatos', bio:[
       "Luke Pavlatos is a CERTIFIED FINANCIAL PLANNER&trade; practitioner and has been in the financial services industry since 2016. Prior to bringing his services to WinCap Financial, Luke worked for John Hancock, where he wore a couple different hats. In his first stint with John Hancock, he specialized in employer qualified plans and tax-advantaged accounts. He later took on a more comprehensive position as a Senior Financial Consultant. It was in this role that Luke and Zach first teamed up to help clients meet their goals. Luke focused on the investment planning, executed transactions, and managed the relationship with clients, while Zach performed the financial planning and retirement projections.",
       "As a CFP&reg;, Luke is also bound by his fiduciary duty to put the clients' interests above all else. In addition, as someone who is originally from a small town in the Midwest, Luke learned at a young age that trust and relationships are of utmost importance, and carries this with him into the business world. Luke has a Bachelor's degree in Economics from Denison University."
     ]},
@@ -57,9 +57,9 @@
   if (teamGrid) {
     teamGrid.innerHTML = team.map((m, i) => `
       <button class="member reveal" type="button" data-bio="${i}" aria-haspopup="dialog">
-        <img class="member-photo" src="team/${m.slug}.jpg" alt="${m.name}" width="560" height="560" loading="lazy">
+        <img class="member-photo" src="team/${m.slug}.jpg" alt="${m.name}" width="720" height="720" loading="lazy">
         <span class="member-body">
-          <span class="member-name">${m.name}</span>
+          <span class="member-name">${m.name}${m.creds ? `<span class="member-creds">, ${m.creds}</span>` : ''}</span>
           <span class="role">${m.role}</span>
           <span class="prof">Read bio <span class="arrow">&rarr;</span></span>
         </span>
@@ -97,7 +97,7 @@
       lastFocus = trigger;
       bioPhoto.src = 'team/' + m.slug + '.jpg';
       bioPhoto.alt = m.name;
-      bioName.textContent = m.name;
+      bioName.innerHTML = m.name + (m.creds ? '<span class="bio-creds">, ' + m.creds + '</span>' : '');
       bioRole.innerHTML = m.role;
       bioBody.innerHTML = m.bio.map(p => '<p>' + p + '</p>').join('') +
         '<a class="bio-link" href="https://wincapfinancial.com/' + m.slug + '"' +

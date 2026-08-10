@@ -145,16 +145,18 @@
   .pp p{font-size:14.5px;color:var(--text-muted)}
 
   /* Team. Each card is a button that opens the biography dialog. */
-  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-  .member{position:relative;aspect-ratio:1/1;display:block;width:100%;padding:0;margin:0;overflow:hidden;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);text-align:left;font:inherit;color:inherit;cursor:pointer;transition:border-color .25s var(--ease),box-shadow .25s var(--ease)}
+  /* Flex rather than grid so the short last row centres itself at every width. */
+  .team-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:22px}
+  .member{position:relative;aspect-ratio:1/1;display:block;flex:0 0 calc((100% - 44px)/3);padding:0;margin:0;overflow:hidden;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);text-align:left;font:inherit;color:inherit;cursor:pointer;transition:border-color .25s var(--ease),box-shadow .25s var(--ease)}
   .member:hover{border-color:#C6D2DB;box-shadow:0 14px 34px -18px rgba(26,39,48,.42)}
   .member:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
   .member-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
   .member:hover .member-photo{transform:scale(1.045)}
   .member::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(10,20,28,.88) 0%,rgba(10,20,28,.46) 32%,rgba(10,20,28,0) 62%)}
   .member-body{position:absolute;z-index:2;left:0;right:0;bottom:0;display:block;padding:18px 18px 16px}
-  .member-name{display:block;font-family:var(--sans);font-weight:600;font-size:16px;color:#fff;margin-bottom:2px}
-  .member .role{display:block;font-size:13px;color:rgba(255,255,255,.82);margin-bottom:9px}
+  .member-name{display:block;font-family:var(--sans);font-weight:600;font-size:17px;color:#fff;margin-bottom:3px}
+  .member-creds{font-weight:500;font-size:.87em;color:rgba(255,255,255,.78)}
+  .member .role{display:block;font-size:13.5px;color:rgba(255,255,255,.82);margin-bottom:10px}
   .member .prof{font-family:var(--grotesk);font-weight:600;font-size:12.5px;color:#fff;display:inline-flex;align-items:center;gap:6px;transition:gap .25s}
   .member:hover .prof{gap:10px}
 
@@ -169,6 +171,7 @@
   .bio-head{display:grid;grid-template-columns:132px 1fr;gap:24px;align-items:center;padding:32px 32px 24px;border-bottom:1px solid var(--line)}
   .bio-photo{width:132px;height:132px;border-radius:12px;object-fit:cover;display:block}
   .bio-head h3{font-family:var(--serif);font-weight:500;font-size:1.7rem;color:var(--text-dark);margin-bottom:6px}
+  .bio-creds{font-size:.62em;color:var(--text-muted);letter-spacing:.01em}
   .bio-role{font-size:14.5px;color:var(--text-muted)}
   .bio-body{padding:26px 32px 32px}
   .bio-body p{font-size:15.5px;line-height:1.72;margin-bottom:15px}
@@ -266,7 +269,7 @@
     .stats{grid-template-columns:1fr 1fr;gap:32px 0}
     .stat{padding:0 24px}
     .stat:nth-child(odd){border-left:0;padding-left:0}
-    .team-grid{grid-template-columns:repeat(2,1fr)}
+    .member{flex-basis:calc((100% - 22px)/2)}
     .res-grid{grid-template-columns:1fr}
     .foot-top{grid-template-columns:1fr 1fr}
     .nav-links,.nav-login{display:none}
@@ -276,7 +279,7 @@
     .wrap{padding:0 22px}
     .sec{padding:70px 0}
     .stats{grid-template-columns:1fr 1fr}
-    .team-grid{grid-template-columns:1fr}
+    .member{flex-basis:100%}
     .bio-modal{padding:0}
     .bio-panel{max-height:100vh;border-radius:0}
     .bio-head{grid-template-columns:1fr;justify-items:center;text-align:center;padding:56px 22px 22px;gap:16px}
