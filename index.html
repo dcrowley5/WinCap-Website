@@ -100,17 +100,10 @@
   .panel svg{display:block;width:100%;height:auto}
   .panel .axis{display:flex;justify-content:space-between;margin-top:8px;font-family:var(--grotesk);font-weight:600;font-size:11.5px;color:rgba(255,255,255,.82)}
 
-  /* Boston photo strip */
-  .boston-strip{padding:56px 0 8px}
-  .bs-head{max-width:56ch;margin-bottom:28px}
+  /* Boston statement line */
+  .boston-strip{padding:64px 0 8px}
+  .bs-head{max-width:56ch}
   .bs-head h3{font-family:var(--sans);font-weight:600;font-size:1.05rem;color:var(--text-dark)}
-  .bs-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px}
-  .bs-photo{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:4/3;background:var(--paper)}
-  .bs-grid .bs-photo:first-child{aspect-ratio:16/11}
-  .bs-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
-  .bs-photo:hover img{transform:scale(1.045)}
-  .bs-cap{position:absolute;left:14px;bottom:12px;color:#fff;font-family:var(--grotesk);font-weight:600;font-size:12.5px;text-shadow:0 1px 6px rgba(0,0,0,.5);z-index:2}
-  .bs-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,20,30,.45),transparent 45%);z-index:1}
   .sec{padding:100px 0}
   .sec-paper{background:var(--paper)}
   .sec-dark{background:var(--ink);color:var(--text-light)}
@@ -186,22 +179,14 @@
   .pillar h3{font-family:var(--sans);font-weight:600;font-size:19px;color:var(--text-dark);margin-bottom:8px}
   .pillar p{font-size:15px;color:var(--text-muted)}
 
-  /* Mission photo card (real Acorn Street, Beacon Hill photo) */
-  .mission-card{position:relative;border-radius:16px;overflow:hidden;min-height:360px;display:flex;align-items:flex-end}
-  .mission-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  /* Mission photo card (aerial night shot of Fenway and the Back Bay) */
+  .mission-card{position:relative;border-radius:16px;overflow:hidden;min-height:520px;display:flex;align-items:flex-end}
+  .mission-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%}
   .mission-card::before{content:"";position:absolute;inset:0;background:linear-gradient(190deg,rgba(10,20,30,.05) 20%,rgba(8,18,28,.82) 92%)}
   .mission-card .mc-inner{position:relative;padding:32px}
   .quote-mark{font-family:var(--serif);font-size:56px;line-height:.5;color:#fff;height:26px;opacity:.85}
   .mission-card p{font-family:var(--serif);font-weight:500;font-size:1.34rem;line-height:1.4;color:#fff}
   .mission-card .mc-credit{margin-top:14px;font-family:var(--grotesk);font-weight:500;font-size:11px;color:rgba(255,255,255,.65)}
-
-  /* Academic relationships */
-  .partners-mention{margin-top:56px;padding-top:40px;border-top:1px solid var(--line)}
-  .pm-head{font-family:var(--grotesk);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
-  .pm-label{display:block;font-size:15px;color:var(--text-muted);margin-bottom:18px;max-width:60ch}
-  .schools{display:flex;flex-wrap:wrap;gap:10px}
-  .school{background:var(--white);border:1px solid var(--line);border-radius:6px;padding:9px 16px;font-family:var(--grotesk);font-weight:600;font-size:13.5px;color:var(--text-dark);transition:border-color .25s}
-  .school:hover{border-color:var(--blue)}
 
   /* CTA */
   .cta{background:linear-gradient(150deg,#1BB4EC,#0E93C6);text-align:center;padding:92px 0}
@@ -230,8 +215,6 @@
 
   @media(max-width:960px){
     .hero-inner,.story-grid,.phil-grid,.part-grid,.pillars{grid-template-columns:1fr;gap:44px}
-    .bs-grid{grid-template-columns:1fr 1fr}
-    .bs-grid .bs-photo:first-child{grid-column:1/-1}
     .panel{max-width:520px}
     .stats{grid-template-columns:1fr 1fr;gap:32px 0}
     .stat{padding:0 24px}
@@ -299,25 +282,11 @@
   </div>
 </section>
 
-<!-- BOSTON PHOTO STRIP -->
+<!-- BOSTON STATEMENT LINE -->
 <section class="boston-strip">
   <div class="wrap">
     <div class="bs-head reveal">
       <h3>Boston is home. It's where we work, and it shows up in every conversation we have.</h3>
-    </div>
-    <div class="bs-grid reveal">
-      <div class="bs-photo">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Boston_Skyline,_from_Bunker_Hill_Monument_(8609105293).jpg?width=900" alt="Boston skyline" loading="lazy">
-        <span class="bs-cap">Downtown Boston</span>
-      </div>
-      <div class="bs-photo">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Massachusetts_State_House_Boston_November_2016.jpg?width=700" alt="Massachusetts State House on Beacon Hill" loading="lazy">
-        <span class="bs-cap">Beacon Hill</span>
-      </div>
-      <div class="bs-photo">
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Swan_Boat,_Boston_Public_Garden,_Boston,_Massachusetts.JPG?width=700" alt="Swan boat in the Boston Public Garden" loading="lazy">
-        <span class="bs-cap">Public Garden</span>
-      </div>
     </div>
   </div>
 </section>
@@ -354,26 +323,13 @@
       <p>That's the point of staying boutique: your goals set the agenda, and you're never just an account number to us.</p>
     </div>
     <aside class="mission-card reveal">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Acorn_Street_Boston,_Massachusetts.jpg?width=900" alt="Acorn Street, a historic cobblestone street on Beacon Hill in Boston" loading="lazy">
+      <img src="boston-night-fenway.jpg" alt="Aerial view of Boston lit up at night, with Fenway Park and the Back Bay" loading="lazy">
       <div class="mc-inner">
         <div class="quote-mark">&ldquo;</div>
         <p>Every client's needs are different. Our job is to understand yours, and make sure you never feel overlooked.</p>
-        <div class="mc-credit">Acorn Street, Beacon Hill</div>
+        <div class="mc-credit">Fenway and the Back Bay, from above</div>
       </div>
     </aside>
-    </div>
-    <div class="partners-mention reveal">
-      <div class="pm-head">Academic Relationships</div>
-      <p class="pm-label">Over the years, we've been glad to host interns from these seven colleges:</p>
-      <div class="schools">
-        <span class="school">Babson College</span>
-        <span class="school">Bentley University</span>
-        <span class="school">Providence College</span>
-        <span class="school">Suffolk University</span>
-        <span class="school">Endicott College</span>
-        <span class="school">Merrimack College</span>
-        <span class="school">George Washington University</span>
-      </div>
     </div>
   </div>
 </section>
