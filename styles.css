@@ -144,14 +144,35 @@
   .pp h4{font-family:var(--sans);font-weight:600;font-size:16.5px;color:var(--text-dark);margin-bottom:4px}
   .pp p{font-size:14.5px;color:var(--text-muted)}
 
-  /* Team */
+  /* Team. Each card is a button that opens the biography dialog. */
   .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-  .member{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:border-color .25s var(--ease),box-shadow .25s var(--ease)}
+  .member{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;padding:0;margin:0;width:100%;text-align:left;font:inherit;color:inherit;cursor:pointer;display:flex;flex-direction:column;transition:border-color .25s var(--ease),box-shadow .25s var(--ease)}
   .member:hover{border-color:#C6D2DB;box-shadow:0 12px 30px -18px rgba(26,39,48,.3)}
-  .avatar{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-weight:500;font-size:20px;color:var(--blue);background:var(--blue-soft);margin-bottom:18px}
-  .member h4{font-family:var(--sans);font-weight:600;font-size:16.5px;color:var(--text-dark);margin-bottom:2px}
-  .member .role{font-size:13.5px;color:var(--text-muted);margin-bottom:14px}
-  .member .prof{font-family:var(--grotesk);font-weight:600;font-size:13px;color:var(--blue);display:inline-flex;align-items:center;gap:6px}
+  .member:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+  .member-photo{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:var(--paper)}
+  .member-body{display:block;padding:18px 20px 20px}
+  .member-name{display:block;font-family:var(--sans);font-weight:600;font-size:16.5px;color:var(--text-dark);margin-bottom:2px}
+  .member .role{display:block;font-size:13.5px;color:var(--text-muted);margin-bottom:12px}
+  .member .prof{font-family:var(--grotesk);font-weight:600;font-size:13px;color:var(--blue);display:inline-flex;align-items:center;gap:6px;transition:gap .25s}
+  .member:hover .prof{gap:10px}
+
+  /* Biography dialog */
+  body.modal-open{overflow:hidden}
+  .bio-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:24px}
+  .bio-modal.open{display:flex}
+  .bio-backdrop{position:absolute;inset:0;background:rgba(10,20,28,.62)}
+  .bio-panel{position:relative;background:var(--white);border-radius:16px;width:100%;max-width:760px;max-height:88vh;overflow-y:auto;box-shadow:0 40px 80px -30px rgba(10,20,28,.55)}
+  .bio-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--white);color:var(--text-muted);font-size:22px;line-height:1;cursor:pointer;display:grid;place-items:center;transition:color .25s,border-color .25s}
+  .bio-close:hover{color:var(--text-dark);border-color:#C6D2DB}
+  .bio-head{display:grid;grid-template-columns:132px 1fr;gap:24px;align-items:center;padding:32px 32px 24px;border-bottom:1px solid var(--line)}
+  .bio-photo{width:132px;height:132px;border-radius:12px;object-fit:cover;display:block}
+  .bio-head h3{font-family:var(--serif);font-weight:500;font-size:1.7rem;color:var(--text-dark);margin-bottom:6px}
+  .bio-role{font-size:14.5px;color:var(--text-muted)}
+  .bio-body{padding:26px 32px 32px}
+  .bio-body p{font-size:15.5px;line-height:1.72;margin-bottom:15px}
+  .bio-body p:last-of-type{margin-bottom:0}
+  .bio-link{display:inline-flex;align-items:center;gap:7px;margin-top:22px;font-family:var(--grotesk);font-weight:600;font-size:14px;color:var(--blue);transition:gap .25s}
+  .bio-link:hover{gap:11px}
 
   /* Resources */
   .res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
@@ -254,6 +275,10 @@
     .sec{padding:70px 0}
     .stats{grid-template-columns:1fr 1fr}
     .team-grid{grid-template-columns:1fr}
+    .bio-modal{padding:0}
+    .bio-panel{max-height:100vh;border-radius:0}
+    .bio-head{grid-template-columns:1fr;justify-items:center;text-align:center;padding:56px 22px 22px;gap:16px}
+    .bio-body{padding:22px 22px 32px}
     .hero{min-height:440px}
     .hero-logo{height:96px}
     .hero-mark{padding:0 22px}
