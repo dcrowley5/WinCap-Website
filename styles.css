@@ -295,9 +295,10 @@
   .doc-card:hover{border-color:#C6D2DB;box-shadow:0 12px 30px -18px rgba(26,39,48,.3)}
   .doc-ico{width:42px;height:42px;border-radius:9px;background:var(--white);border:1px solid var(--line);display:grid;place-items:center;margin-bottom:18px}
   .doc-ico svg{width:20px;height:20px;stroke:var(--blue);fill:none;stroke-width:1.8}
-  .doc-card h3{font-family:var(--sans);font-weight:600;font-size:16.5px;color:var(--text-dark);margin-bottom:8px}
-  .doc-card p{font-size:14.5px;line-height:1.62;color:var(--text-muted);margin-bottom:16px;flex:1}
-  .doc-meta{font-family:var(--grotesk);font-weight:600;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px}
+  .doc-card h3{font-family:var(--sans);font-weight:600;font-size:16.5px;color:var(--text-dark);margin-bottom:10px}
+  /* margin-top:auto keeps the meta and Download pinned to the bottom of the
+     card now that the description paragraph no longer stretches to fill it. */
+  .doc-meta{font-family:var(--grotesk);font-weight:600;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);margin-top:auto;margin-bottom:14px}
   .doc-link{font-family:var(--grotesk);font-weight:600;font-size:14px;color:var(--blue);display:inline-flex;align-items:center;gap:7px;transition:gap .25s}
   .doc-card:hover .doc-link{gap:11px}
 
