@@ -99,9 +99,7 @@
       bioPhoto.alt = m.name;
       bioName.innerHTML = m.name + (m.creds ? '<span class="bio-creds">, ' + m.creds + '</span>' : '');
       bioRole.innerHTML = m.role;
-      bioBody.innerHTML = m.bio.map(p => '<p>' + p + '</p>').join('') +
-        '<a class="bio-link" href="https://wincapfinancial.com/' + m.slug + '"' +
-        ' target="_blank" rel="noopener noreferrer">Full profile <span class="arrow">&rarr;</span></a>';
+      bioBody.innerHTML = m.bio.map(p => '<p>' + p + '</p>').join('');
       panel.scrollTop = 0;
       modal.classList.add('open');
       document.body.classList.add('modal-open');

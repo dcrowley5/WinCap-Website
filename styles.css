@@ -176,8 +176,6 @@
   .bio-body{padding:26px 32px 32px}
   .bio-body p{font-size:15.5px;line-height:1.72;margin-bottom:15px}
   .bio-body p:last-of-type{margin-bottom:0}
-  .bio-link{display:inline-flex;align-items:center;gap:7px;margin-top:22px;font-family:var(--grotesk);font-weight:600;font-size:14px;color:var(--blue);transition:gap .25s}
-  .bio-link:hover{gap:11px}
 
   /* Resources */
   .res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
