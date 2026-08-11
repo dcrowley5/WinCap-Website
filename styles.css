@@ -136,6 +136,7 @@
   .rb-fill.equity{background:var(--blue);width:70%}
   .rb-fill.bond{background:#8FA6B5;width:40%}
   .runway-card .rc-note{font-size:13px;color:var(--text-muted);margin-top:20px;line-height:1.55}
+  .runway-card .rc-disc{font-size:11.5px;color:var(--text-muted);margin-top:14px;line-height:1.5}
   .runway-chart{display:block;width:100%;height:auto;margin:14px 0 2px}
   .phil-points{list-style:none;display:flex;flex-direction:column;gap:26px}
   .pp{display:grid;grid-template-columns:auto 1fr;gap:18px}
