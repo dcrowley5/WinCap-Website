@@ -123,6 +123,121 @@
     });
   }
 
+  // Newsletter: the weekly Substack posts, read through /api/newsletter and
+  // rendered here rather than sending people off to Substack.
+  const postList = document.getElementById('postList');
+  const postView = document.getElementById('postView');
+  if (postList && postView) {
+    const parser = new DOMParser();
+
+    const fmtDate = (raw) => {
+      const d = new Date(raw);
+      return isNaN(d.getTime()) ? '' :
+        d.toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'});
+    };
+
+    // Pull a namespaced child (content:encoded, dc:creator) whichever way the
+    // parser exposed it, then fall back to matching on local name.
+    const field = (item, qualified) => {
+      let el = item.getElementsByTagName(qualified)[0];
+      if (!el && qualified.indexOf(':') > -1) {
+        const local = qualified.split(':')[1];
+        el = Array.prototype.find.call(item.children, c => c.localName === local);
+      }
+      return el ? (el.textContent || '') : '';
+    };
+
+    // It is our own writing, but it is still third-party HTML arriving at
+    // runtime, so drop anything executable or interactive before it goes in.
+    const sanitize = (html) => {
+      const d = parser.parseFromString(html, 'text/html');
+      d.querySelectorAll('script,style,form,button,input,textarea,select,iframe,object,embed,link,meta').forEach(n => n.remove());
+      d.querySelectorAll('*').forEach(el => {
+        Array.prototype.slice.call(el.attributes).forEach(attr => {
+          const bad = /^on/i.test(attr.name) ||
+            (/^(href|src|srcset)$/i.test(attr.name) && /^\s*javascript:/i.test(attr.value));
+          if (bad) el.removeAttribute(attr.name);
+        });
+      });
+      d.querySelectorAll('a[href]').forEach(a => { a.target = '_blank'; a.rel = 'noopener noreferrer'; });
+      d.querySelectorAll('img').forEach(img => { img.loading = 'lazy'; img.removeAttribute('height'); });
+      return d.body.innerHTML;
+    };
+
+    const plain = (html) => {
+      const d = parser.parseFromString(html, 'text/html');
+      d.querySelectorAll('script,style,form,button').forEach(n => n.remove());
+      return (d.body.textContent || '').replace(/\s+/g, ' ').trim();
+    };
+
+    const esc = (s) => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+    let posts = [];
+
+    const showList = () => {
+      postView.hidden = true;
+      postList.hidden = false;
+      window.scrollTo({top:0, behavior:'smooth'});
+    };
+
+    const showPost = (i) => {
+      const p = posts[i];
+      if (!p) return;
+      postView.innerHTML =
+        '<button class="post-back" type="button">&larr; All posts</button>' +
+        '<h2 class="post-title">' + esc(p.title) + '</h2>' +
+        '<div class="post-meta">' + [p.author, p.date].filter(Boolean).map(esc).join(' &middot; ') + '</div>' +
+        '<div class="post-content">' + p.content + '</div>' +
+        '<a class="post-source" href="' + esc(p.link) + '" target="_blank" rel="noopener noreferrer">' +
+        'Read this post on Substack <span class="arrow">&rarr;</span></a>';
+      postView.querySelector('.post-back').addEventListener('click', showList);
+      postList.hidden = true;
+      postView.hidden = false;
+      window.scrollTo({top:0, behavior:'smooth'});
+    };
+
+    const failed = () => {
+      postList.innerHTML = '<p class="post-status">The latest posts could not be loaded just now. ' +
+        'You can read them at <a href="https://wincap.substack.com" target="_blank" rel="noopener noreferrer">wincap.substack.com</a>.</p>';
+    };
+
+    fetch('/api/newsletter')
+      .then(r => r.ok ? r.text() : Promise.reject(new Error('HTTP ' + r.status)))
+      .then(xml => {
+        const doc = parser.parseFromString(xml, 'application/xml');
+        if (doc.getElementsByTagName('parsererror').length) throw new Error('unparseable feed');
+        posts = Array.prototype.map.call(doc.getElementsByTagName('item'), item => {
+          const body = field(item, 'content:encoded') || field(item, 'description');
+          const enclosure = item.getElementsByTagName('enclosure')[0];
+          const excerpt = plain(body);
+          return {
+            title: field(item, 'title'),
+            link: field(item, 'link'),
+            date: fmtDate(field(item, 'pubDate')),
+            author: field(item, 'dc:creator'),
+            image: enclosure ? (enclosure.getAttribute('url') || '') : '',
+            excerpt: excerpt.length > 180 ? excerpt.slice(0, 180).replace(/\s+\S*$/, '') + '…' : excerpt,
+            content: sanitize(body)
+          };
+        });
+        if (!posts.length) throw new Error('no items');
+        postList.innerHTML = posts.map((p, i) => `
+          <button class="post-card" type="button" data-post="${i}">
+            ${p.image ? `<img class="post-thumb" src="${esc(p.image)}" alt="" loading="lazy">` : '<span class="post-thumb post-thumb-empty"></span>'}
+            <span class="post-body">
+              ${p.date ? `<span class="post-date">${esc(p.date)}</span>` : ''}
+              <span class="post-name">${esc(p.title)}</span>
+              <span class="post-excerpt">${esc(p.excerpt)}</span>
+              <span class="post-more">Read the story <span class="arrow">&rarr;</span></span>
+            </span>
+          </button>`).join('');
+        postList.querySelectorAll('.post-card').forEach(btn => {
+          btn.addEventListener('click', () => showPost(Number(btn.dataset.post)));
+        });
+      })
+      .catch(failed);
+  }
+
   // External links (advisor profiles, client tools, socials) can be blocked
   // by the preview sandbox — open them explicitly, with a fallback.
   document.querySelectorAll('a[href^="http"]').forEach(a => {

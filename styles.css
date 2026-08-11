@@ -233,6 +233,46 @@
   body.page-light .lg-light{display:none}
   body.page-light .lg-dark{display:block}
 
+  /* Newsletter: the Substack posts, listed and read on this site */
+  .posts{padding:56px 0 96px}
+  .post-list{display:grid;gap:18px}
+  .post-list[hidden],.post-view[hidden]{display:none}
+  .post-status{font-size:15.5px;color:var(--text-muted)}
+  .post-status a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+  .post-card{display:grid;grid-template-columns:230px 1fr;gap:24px;align-items:stretch;width:100%;padding:0;margin:0;text-align:left;font:inherit;color:inherit;cursor:pointer;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:border-color .25s var(--ease),box-shadow .25s var(--ease)}
+  .post-card:hover{border-color:#C6D2DB;box-shadow:0 12px 30px -18px rgba(26,39,48,.3)}
+  .post-card:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+  .post-thumb{width:230px;height:100%;min-height:158px;object-fit:cover;display:block;background:var(--paper)}
+  .post-thumb-empty{background:var(--blue-soft)}
+  .post-body{display:block;padding:24px 26px 24px 0}
+  .post-date{display:block;font-family:var(--grotesk);font-weight:600;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:9px}
+  .post-name{display:block;font-family:var(--serif);font-weight:500;font-size:1.34rem;line-height:1.22;color:var(--text-dark);margin-bottom:10px}
+  .post-excerpt{display:block;font-size:14.5px;line-height:1.6;color:var(--text-muted);margin-bottom:14px}
+  .post-more{font-family:var(--grotesk);font-weight:600;font-size:13.5px;color:var(--blue);display:inline-flex;align-items:center;gap:6px;transition:gap .25s}
+  .post-card:hover .post-more{gap:10px}
+
+  /* A single post, rendered from the feed */
+  .post-view{max-width:720px;margin:0 auto}
+  .post-back{background:none;border:0;padding:0;margin-bottom:26px;font-family:var(--grotesk);font-weight:600;font-size:13.5px;color:var(--blue);cursor:pointer}
+  .post-back:hover{color:var(--blue-deep)}
+  .post-title{font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.14;margin-bottom:12px}
+  .post-meta{font-family:var(--grotesk);font-weight:600;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);padding-bottom:22px;margin-bottom:28px;border-bottom:1px solid var(--line)}
+  .post-content{font-size:16px;line-height:1.75}
+  .post-content p{margin-bottom:18px}
+  .post-content h1,.post-content h2,.post-content h3,.post-content h4{margin:34px 0 12px;font-size:1.3rem;line-height:1.25}
+  .post-content img{max-width:100%;height:auto;border-radius:10px;margin:8px 0}
+  .post-content figure{margin:24px 0}
+  .post-content figcaption{font-size:13px;color:var(--text-muted);margin-top:9px;text-align:center}
+  .post-content a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+  .post-content ul,.post-content ol{margin:0 0 18px 22px}
+  .post-content li{margin-bottom:8px}
+  .post-content blockquote{border-left:3px solid var(--blue);padding-left:18px;margin:24px 0;color:var(--text-muted)}
+  .post-content hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+  .post-content table{width:100%;border-collapse:collapse;margin-bottom:18px;font-size:14.5px}
+  .post-content th,.post-content td{border:1px solid var(--line);padding:8px 10px;text-align:left}
+  .post-source{display:inline-flex;align-items:center;gap:7px;margin-top:32px;padding-top:26px;border-top:1px solid var(--line);width:100%;font-family:var(--grotesk);font-weight:600;font-size:14px;color:var(--blue);transition:gap .25s}
+  .post-source:hover{gap:11px}
+
   /* Legal / disclosures page */
   .legal-head{background:var(--paper);border-bottom:1px solid var(--line);padding:148px 0 52px}
   .legal-head .eyebrow{margin-bottom:12px}
@@ -290,6 +330,10 @@
     .legal-head{padding:118px 0 40px}
     .legal-body{padding:48px 0 72px}
     .doc-grid{grid-template-columns:1fr}
+    .posts{padding:40px 0 72px}
+    .post-card{grid-template-columns:1fr;gap:0}
+    .post-thumb{width:100%;height:190px;min-height:0}
+    .post-body{padding:22px}
     .foot-top{grid-template-columns:1fr}
     .foot-bottom{flex-direction:column}
   }
