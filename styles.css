@@ -180,7 +180,7 @@
   .bio-body p:last-of-type{margin-bottom:0}
 
   /* Resources */
-  .res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .res-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
   .res-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column;transition:border-color .25s var(--ease),box-shadow .25s var(--ease)}
   .res-card:hover{border-color:#C6D2DB;box-shadow:0 12px 30px -18px rgba(26,39,48,.3)}
   .res-ico{width:44px;height:44px;border-radius:9px;background:var(--blue-soft);display:grid;place-items:center;margin-bottom:20px}
@@ -291,10 +291,10 @@
   .post-source:hover{gap:11px}
 
   /* Legal / disclosures page */
-  .legal-head{background:var(--paper);border-bottom:1px solid var(--line);padding:148px 0 52px}
-  .legal-head .eyebrow{margin-bottom:12px}
-  .legal-head h1{font-size:clamp(2.1rem,3.6vw,2.9rem);margin-bottom:14px}
-  .legal-head p{color:var(--text-muted);font-size:1.05rem;max-width:62ch}
+  .legal-head,.page-head{background:var(--paper);border-bottom:1px solid var(--line);padding:148px 0 52px}
+  .legal-head .eyebrow,.page-head .eyebrow{margin-bottom:12px}
+  .legal-head h1,.page-head h1{font-size:clamp(2.1rem,3.6vw,2.9rem);margin-bottom:14px}
+  .legal-head p,.page-head p{color:var(--text-muted);font-size:1.05rem;max-width:62ch}
   .legal-body{padding:64px 0 96px}
   .legal-body .wrap{max-width:860px}
   .legal-block{margin-bottom:46px}
@@ -319,6 +319,48 @@
   .doc-link{font-family:var(--grotesk);font-weight:600;font-size:14px;color:var(--blue);display:inline-flex;align-items:center;gap:7px;transition:gap .25s}
   .doc-card:hover .doc-link{gap:11px}
 
+
+  /* ---------- Philosophy page ---------- */
+  .phil-prose{max-width:72ch}
+  .phil-prose p{font-size:16px;line-height:1.75;margin-bottom:16px}
+  .phil-prose p:last-child{margin-bottom:0}
+  .phil-prose strong{font-weight:600;color:var(--text-dark)}
+  .phil-lead{font-size:1.12rem;line-height:1.65;color:var(--text-dark);margin-bottom:20px}
+
+  /* Numbered build process */
+  .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;counter-reset:step}
+  .step{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:28px 30px;transition:border-color .25s var(--ease),box-shadow .25s var(--ease)}
+  .step:hover{border-color:#C6D2DB;box-shadow:0 12px 30px -18px rgba(26,39,48,.3)}
+  .step-n{font-family:var(--grotesk);font-weight:800;font-size:13px;letter-spacing:.1em;color:var(--blue);display:block;margin-bottom:12px}
+  .step h3{font-family:var(--sans);font-weight:600;font-size:17.5px;color:var(--text-dark);margin-bottom:8px}
+  .step p{font-size:14.5px;color:var(--text-muted);line-height:1.65}
+
+  /* What we don't do */
+  .nots{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:26px 34px}
+  .nots li{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+  .nots .ic{width:34px;height:34px;border-radius:50%;background:#EDF1F4;border:1px solid var(--line);display:grid;place-items:center;flex-shrink:0}
+  .nots .ic svg{width:15px;height:15px;stroke:var(--text-muted);fill:none;stroke-width:2.2}
+  .nots h4{font-family:var(--sans);font-weight:600;font-size:16px;color:var(--text-dark);margin-bottom:4px}
+  .nots p{font-size:14.5px;color:var(--text-muted);line-height:1.6}
+
+  /* FAQ */
+  .faq{max-width:820px;border-top:1px solid var(--line)}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{list-style:none;cursor:pointer;padding:20px 44px 20px 0;position:relative;font-family:var(--sans);font-weight:600;font-size:16.5px;color:var(--text-dark);transition:color .2s var(--ease)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary:hover{color:var(--blue)}
+  .faq summary::after{content:"";position:absolute;right:8px;top:50%;width:9px;height:9px;border-right:2px solid var(--text-muted);border-bottom:2px solid var(--text-muted);transform:translateY(-70%) rotate(45deg);transition:transform .25s var(--ease)}
+  .faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+  .faq details[open] summary{color:var(--blue)}
+  .faq .fa-body{padding:0 44px 22px 0}
+  .faq .fa-body p{font-size:15.5px;line-height:1.72;color:var(--text-muted);margin-bottom:12px}
+  .faq .fa-body p:last-child{margin-bottom:0}
+
+  /* Small print used on the philosophy page */
+  .fine-print{font-size:12.5px;line-height:1.6;color:var(--text-muted);max-width:78ch;margin-top:26px;padding-top:18px;border-top:1px solid var(--line)}
+
+  /* Link back to the full philosophy page from the homepage teaser */
+  .phil-more{margin-top:34px}
   /* Tighten nav spacing before the links collapse into the burger menu */
   @media(max-width:1120px){
     .nav-links{gap:20px}
@@ -326,6 +368,7 @@
 
   @media(max-width:960px){
     .story-grid,.phil-grid,.part-grid,.pillars{grid-template-columns:1fr;gap:44px}
+    .steps,.nots{grid-template-columns:1fr}
     .panel{max-width:520px}
     .stats{grid-template-columns:1fr 1fr;gap:32px 0}
     .stat{padding:0 24px}
