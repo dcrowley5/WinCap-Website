@@ -238,16 +238,11 @@
       .catch(failed);
   }
 
-  // External links (advisor profiles, client tools, socials) can be blocked
-  // by the preview sandbox — open them explicitly, with a fallback.
-  document.querySelectorAll('a[href^="http"]').forEach(a => {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      const url = a.getAttribute('href');
-      const win = window.open(url, '_blank', 'noopener');
-      if (!win) { try { window.top.location.href = url; } catch (_) { window.location.href = url; } }
-    });
-  });
+  // External links (Client Login, advisor profiles, socials) are plain
+  // target="_blank" anchors in the markup — the browser opens them in a new
+  // tab on its own. Do not intercept them here: window.open(url, '_blank',
+  // 'noopener') always returns null by spec, so any "popup was blocked"
+  // fallback fires on success too and navigates this tab away as well.
 
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
