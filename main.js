@@ -176,6 +176,21 @@
     });
   }
 
+  // Scheduling picker: one row per person who has a Calendly link, built from
+  // the same team data above so there is no second list of URLs to keep in sync.
+  const schedList = document.getElementById('schedList');
+  if (schedList) {
+    schedList.innerHTML = team.filter(m => m.calendly).map(m => `
+      <a class="sched-row reveal" href="${m.calendly}" target="_blank" rel="noopener">
+        <img class="sched-photo" src="team/${m.slug}.jpg" alt="" width="112" height="112" loading="lazy">
+        <span class="sched-who">
+          <span class="sched-name">${m.name}${m.creds ? `<span class="sched-creds">, ${m.creds}</span>` : ''}</span>
+          <span class="sched-role">${m.role}</span>
+        </span>
+        <span class="sched-cta">Book a time <span class="arrow">&rarr;</span></span>
+      </a>`).join('');
+  }
+
   // Newsletter: the weekly Substack posts, read through /api/newsletter and
   // rendered here rather than sending people off to Substack.
   const postList = document.getElementById('postList');
