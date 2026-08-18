@@ -90,10 +90,10 @@
           <div>
             <h3 id="bioName"></h3>
             <div class="bio-role" id="bioRole"></div>
+            <div class="bio-actions" id="bioActions" hidden></div>
           </div>
         </div>
         <div class="bio-body" id="bioBody"></div>
-        <div class="bio-actions" id="bioActions" hidden></div>
       </div>`;
     document.body.appendChild(modal);
 
@@ -131,7 +131,6 @@
       }
       bioActions.innerHTML = acts.join('');
       bioActions.hidden = acts.length === 0;
-      panel.classList.toggle('has-actions', acts.length > 0);
 
       panel.scrollTop = 0;
       modal.classList.add('open');
