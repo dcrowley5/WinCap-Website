@@ -172,6 +172,10 @@
   .bio-head h3{font-family:var(--serif);font-weight:500;font-size:1.7rem;color:var(--text-dark);margin-bottom:6px}
   .bio-creds{font-size:.62em;color:var(--text-muted);letter-spacing:.01em}
   .bio-role{font-size:14.5px;color:var(--text-muted)}
+  .bio-contact{display:flex;flex-wrap:wrap;align-items:center;margin-top:9px;font-size:14px;line-height:1.6}
+  .bio-contact a{color:var(--text-muted);transition:color .2s var(--ease)}
+  .bio-contact a:hover{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+  .bio-sep{padding:0 10px;color:#C6D2DB}
   .bio-body{padding:26px 32px 32px}
   .bio-body p{font-size:15.5px;line-height:1.72;margin-bottom:15px}
   .bio-body p:last-of-type{margin-bottom:0}
@@ -394,7 +398,7 @@
     .bio-panel{max-height:100vh;border-radius:0}
     .bio-head{grid-template-columns:1fr;justify-items:center;text-align:center;padding:56px 22px 22px;gap:16px}
     .bio-body{padding:22px 22px 32px}
-    .bio-actions{justify-content:center}
+    .bio-contact,.bio-actions{justify-content:center}
     .hero{min-height:440px}
     .hero-logo{height:96px}
     .hero-mark{padding:0 22px}
