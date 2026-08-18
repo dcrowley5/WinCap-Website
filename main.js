@@ -25,18 +25,18 @@
   // LinkedIn link without a scheduling link.
   const team = [
     {name:'Michael Collins', creds:'CFA', role:'Founder &amp; CEO', slug:'michael-collins',
-     linkedin:'', calendly:'', bio:[
+     linkedin:'', calendly:'https://calendly.com/wincapfinancial', bio:[
       "Michael Collins, CFA has worked in Wealth Management since 2012 with roles at Northern Trust and CAPTRUST. Prior to that Michael worked in various roles in Institutional Investment Management since starting his career at State Street in 2005. He has a depth of expertise in financial planning and investment management which he leverages to enhance client outcomes.",
       "Michael is a Chartered Financial Analyst (CFA) and a Fiduciary, which requires him to always act in the best interest of his clients. Michael also has his Masters Degree in Finance from Suffolk University",
       "Michael currently teaches at Endicott College and Bunker Hill Community College where he educates students about the intricacies of the market and the basic fundamentals used by professionals to evaluate the economy. Additionally, Michael has joined the CFA Board's Program Education &amp; Advisory Council as of 2025. Here, Michael looks to give back to the organization that has helped shape his professional career."
     ]},
     {name:'Zach Ciampa', creds:'CFP&reg;, RICP&reg;, ChFC&reg;, BFA&trade;', role:'Head of Financial Planning', slug:'zach-ciampa',
-     linkedin:'', calendly:'', bio:[
+     linkedin:'', calendly:'https://calendly.com/zciampa', bio:[
       "Zach Ciampa brings 10 years of comprehensive experience in the financial services industry. His journey started at Fidelity Investments, where his focus was on investment planning. Subsequently, he enriched his skills during his time at Charles Schwab before contributing his insights as a financial planner at John Hancock. Through these experiences, Zach has honed his expertise to guide clients toward their financial goals.",
       "Zach is a CERTIFIED FINANCIAL PLANNER&trade; professional, Retirement Income Certified Professional&reg;, Chartered Financial Consultant&reg;, and Behavioral Finance Advisor&trade;. These certifications underscore his commitment to upholding the highest standards of professionalism and ethics. As a fiduciary, he ensures that clients receive advice which aligns with their best interests. Zach also earned his Bachelor's degree in Communications, with a minor in business, from Arizona State University."
     ]},
     {name:'Luke Pavlatos', creds:'CFP&reg;', role:'Senior Wealth Manager', slug:'luke-pavlatos',
-     linkedin:'', calendly:'', bio:[
+     linkedin:'', calendly:'https://calendly.com/lpavlatos-wincapfinancial', bio:[
       "Luke Pavlatos is a CERTIFIED FINANCIAL PLANNER&trade; practitioner and has been in the financial services industry since 2016. Prior to bringing his services to WinCap Financial, Luke worked for John Hancock, where he wore a couple different hats. In his first stint with John Hancock, he specialized in employer qualified plans and tax-advantaged accounts. He later took on a more comprehensive position as a Senior Financial Consultant. It was in this role that Luke and Zach first teamed up to help clients meet their goals. Luke focused on the investment planning, executed transactions, and managed the relationship with clients, while Zach performed the financial planning and retirement projections.",
       "As a CFP&reg;, Luke is also bound by his fiduciary duty to put the clients' interests above all else. In addition, as someone who is originally from a small town in the Midwest, Luke learned at a young age that trust and relationships are of utmost importance, and carries this with him into the business world. Luke has a Bachelor's degree in Economics from Denison University."
     ]},
@@ -47,7 +47,7 @@
       "Joe's main focus and passion is building long-lasting relationships and partnering with individuals and families to create comprehensive financial plans."
     ]},
     {name:'Joseph Duran', role:'Senior Wealth Manager', slug:'joseph-duran',
-     linkedin:'', calendly:'', bio:[
+     linkedin:'', calendly:'https://calendly.com/jduran-wincapfinancial', bio:[
       "Joseph Duran is a seasoned financial advisor at WinCap Financial, widely respected for his analytical insight and unwavering commitment to client-centered service. A Magna Cum Laude graduate in Business Administration with a concentration in Finance from Colorado State University, Joseph combines personalized strategy with innovative financial planning. His experience includes authoring complex financial plans, designing strategic life insurance solutions, and guiding clients through critical decisions in long-term care&mdash;empowering them to build lasting financial security.",
       "He began his career at UBS Financial Services, where he sharpened his expertise in investment research and portfolio construction. Today, at WinCap Financial, Joseph is passionate about crafting adaptable strategies tailored to each client's unique life path. He also advises businesses on cash management and helps clients navigate the complexities of establishing and managing qualified retirement plans.",
       "Joseph believes deeply in the importance of work-life balance and community involvement. He cherishes time with his wife, Carly, and their three children, and proudly serves on the board of Junior Achievement &ndash; Rocky Mountain, where he helps shape the next generation's financial literacy and leadership skills. This commitment to family and service guides the thoughtful, people-first approach he brings to every client relationship."
