@@ -190,6 +190,19 @@
   .res-link{font-family:var(--grotesk);font-weight:600;font-size:14px;color:var(--blue);display:inline-flex;align-items:center;gap:7px;transition:gap .25s}
   .res-card:hover .res-link{gap:11px}
 
+  /* Offices */
+  .loc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .loc-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column;transition:border-color .25s var(--ease),box-shadow .25s var(--ease)}
+  .loc-card:hover{border-color:#C6D2DB;box-shadow:0 12px 30px -18px rgba(26,39,48,.3)}
+  .loc-ico{width:44px;height:44px;border-radius:9px;background:var(--blue-soft);display:grid;place-items:center;margin-bottom:20px}
+  .loc-ico svg{width:21px;height:21px;stroke:var(--blue);fill:none;stroke-width:1.8}
+  .loc-tag{font-family:var(--grotesk);font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:8px}
+  .loc-card h3{font-size:1.5rem;margin-bottom:12px}
+  .loc-addr{font-style:normal;font-size:15px;color:var(--text-muted);margin-bottom:22px;flex:1}
+  .loc-addr span{display:block}
+  .loc-link{font-family:var(--grotesk);font-weight:600;font-size:14px;color:var(--blue);display:inline-flex;align-items:center;gap:7px;transition:gap .25s}
+  .loc-card:hover .loc-link{gap:11px}
+
   /* Client pillars */
   .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:36px}
   .pillar .pic{width:46px;height:46px;border-radius:11px;background:var(--blue-soft);display:grid;place-items:center;margin-bottom:18px}
@@ -213,6 +226,8 @@
   .foot-brand .lg{height:58px;margin-bottom:16px}
   .foot-brand p{font-size:14px;max-width:34ch;margin-bottom:14px}
   .foot-addr{font-style:normal;font-size:14px;line-height:1.6;margin-bottom:20px}
+  .foot-addr span{display:block}
+  .foot-addr span+span{margin-top:10px}
   .socials{display:flex;gap:11px}
   .socials a{width:38px;height:38px;border-radius:8px;border:1px solid var(--line-dark);display:grid;place-items:center;transition:border-color .25s,background .25s}
   .socials a:hover{border-color:var(--blue);background:rgba(18,171,228,.12)}
@@ -304,6 +319,11 @@
   .doc-link{font-family:var(--grotesk);font-weight:600;font-size:14px;color:var(--blue);display:inline-flex;align-items:center;gap:7px;transition:gap .25s}
   .doc-card:hover .doc-link{gap:11px}
 
+  /* Tighten nav spacing before the links collapse into the burger menu */
+  @media(max-width:1120px){
+    .nav-links{gap:20px}
+  }
+
   @media(max-width:960px){
     .story-grid,.phil-grid,.part-grid,.pillars{grid-template-columns:1fr;gap:44px}
     .panel{max-width:520px}
@@ -312,6 +332,7 @@
     .stat:nth-child(odd){border-left:0;padding-left:0}
     .member{flex-basis:calc((100% - 22px)/2)}
     .res-grid{grid-template-columns:1fr}
+    .loc-grid{grid-template-columns:1fr}
     .foot-top{grid-template-columns:1fr 1fr}
     .nav-links,.nav-login{display:none}
     .burger{display:flex}
