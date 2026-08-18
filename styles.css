@@ -56,9 +56,6 @@
   .nav-links a:hover{color:var(--blue)}
   header.scrolled .nav-links a{color:var(--text-body)}
   .nav-cta{display:flex;align-items:center;gap:16px}
-  .nav-login{font-family:var(--grotesk);font-weight:600;font-size:14px;color:#fff;transition:color .25s}
-  .nav-login:hover{color:var(--blue)}
-  header.scrolled .nav-login{color:var(--text-dark)}
   .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
   .burger span{width:24px;height:2px;background:#fff;transition:.3s}
   header.scrolled .burger span{background:var(--ink)}
@@ -245,7 +242,6 @@
   /* Interior pages (no dark photo hero, so the header wears its solid look from the top) */
   body.page-light header{background:rgba(255,255,255,.96);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
   body.page-light .nav-links a{color:var(--text-body)}
-  body.page-light .nav-login{color:var(--text-dark)}
   body.page-light .burger span{background:var(--ink)}
   body.page-light .lg-light{display:none}
   body.page-light .lg-dark{display:block}
@@ -377,7 +373,7 @@
     .res-grid{grid-template-columns:1fr}
     .loc-grid{grid-template-columns:1fr}
     .foot-top{grid-template-columns:1fr 1fr}
-    .nav-links,.nav-login{display:none}
+    .nav-links{display:none}
     .burger{display:flex}
   }
   @media(max-width:560px){
