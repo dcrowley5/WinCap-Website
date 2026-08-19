@@ -94,7 +94,7 @@
       <div class="bio-panel">
         <button class="bio-close" type="button" aria-label="Close biography" data-close>&times;</button>
         <div class="bio-head">
-          <img class="bio-photo" id="bioPhoto" src="" alt="">
+          <img class="bio-photo" id="bioPhoto" alt="">
           <div>
             <h3 id="bioName"></h3>
             <div class="bio-role" id="bioRole"></div>
