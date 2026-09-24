@@ -213,7 +213,7 @@
   .sched-row:hover .sched-cta{gap:11px}
 
   /* Offices */
-  .loc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .loc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   .loc-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column;transition:border-color .25s var(--ease),box-shadow .25s var(--ease)}
   .loc-card:hover{border-color:#C6D2DB;box-shadow:0 12px 30px -18px rgba(26,39,48,.3)}
   .loc-ico{width:44px;height:44px;border-radius:9px;background:var(--blue-soft);display:grid;place-items:center;margin-bottom:20px}
@@ -382,9 +382,10 @@
 
   /* Link back to the full philosophy page from the homepage teaser */
   .phil-more{margin-top:34px}
-  /* Tighten nav spacing before the links collapse into the burger menu */
+  /* Tighten nav spacing before the links collapse, and drop the offices to two-up */
   @media(max-width:1120px){
     .nav-links{gap:20px}
+    .loc-grid{grid-template-columns:repeat(2,1fr)}
   }
 
   @media(max-width:960px){
